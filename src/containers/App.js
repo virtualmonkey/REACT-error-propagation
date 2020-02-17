@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-//import './App.css';
-import Header from '../components/Header'
-import ExpressionField from '../components/ExpressionField'
-import ExpressionDisplay from '../components/ExpressionDisplay'
+
+import Header from '../components/Header';
+import ExpressionField from '../components/ExpressionField';
+import ExpressionDisplay from '../components/ExpressionDisplay';
+
+import { connect } from 'react-redux';
+import { changeExpressionField } from '../actions';
+
 
 const loadScript = function(src) {
   var tag = document.createElement('script');
@@ -11,18 +15,35 @@ const loadScript = function(src) {
   document.getElementsByTagName('body')[0].appendChild(tag);
 }
 
+// App.js inherits the state object provided by Provider in index.js this is implicit 
+// in the call to mapStateProps in the bottom line of this file
+const mapStateToProps = (state) => {
+  return {
+      expression:  state.setExpressionField.expression,
+  }
+}
+// App.js inherits the dispatch provided by Provider in index.js due to the redux implementation
+// this is implicit in the call to mapDispatchToProps in the bottom line of this file
+// in this function we return the functions that contain the actions within them
+const mapDispatchToProps = (dispatch) => {
+  return {
+      onExpressionChange: (event) => dispatch(changeExpressionField(event.target.value)),
+  }
+}
+
 class App extends Component {
   componentDidMount(){
     loadScript('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML');
   }
   render(){
+    const { onExpressionChange } = this.props;
     return (
       <div className="App">
         <Header />
         <div className="flex flex-row flex-wrap">
           <div className="flex flex-column justify-center items-center">
             <p className="dim black dib ma0 f4-ns pa2">Insert Expression</p>
-            <ExpressionField />
+            <ExpressionField expressionChangeFunction={onExpressionChange}/>
             <ExpressionDisplay />
           </div>
           <div className="flex- flex-column justify-center">
@@ -33,4 +54,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

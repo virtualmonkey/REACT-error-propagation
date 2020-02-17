@@ -6,6 +6,7 @@ import {
     MODIFY_VARIABLE_FIELD,
     CALCULATE_RESULT,
 } from "./constants"
+
 import update from 'immutability-helper';
 
 const initialState = {
@@ -41,7 +42,9 @@ export const setVariablesChanges = (state = initialState, action = {}) => {
                 variables : state.variables.map( (variable) => { 
                     if (variable[0] === action.payload[0]){
                         return action.payload;
-                    }   
+                    } else {
+                        return variable;
+                    }
                 })
             }) 
 
@@ -52,7 +55,7 @@ export const setVariablesChanges = (state = initialState, action = {}) => {
                 }
             });
         case REMOVE_VARIABLE:
-            Object.assign({}, state, {variables: state.variables.filter( variable =>{ return variable[0] !== action.payload; })});
+            return Object.assign({}, state, {variables: state.variables.filter( variable =>{ return variable[0] !== action.payload; })});
             // return {...state, 
             //     variables: state.variables.filter(
             //         (variable) => {
