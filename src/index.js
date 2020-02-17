@@ -22,6 +22,7 @@ import 'tachyons';
 
 import { setExpressionField, setVariables } from './reducers'
 
+
 /* intance of the logger */
 const logger = createLogger();
 // in order to use multiple reducers we have to create a rootReducer by calling combineReducers function
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({ setExpressionField, setVariables });
 // The store A.K.A. the state of the app is declared with the root reducer, and as
 // an optional second parameter we can pass a middleware, to keep track of the actions
 const store = createStore(rootReducer,  applyMiddleware(thunkMiddleware,logger));
+
 
 
 /* wrapping the App within the Provider component passes down the store in all the other components contained in the App Component */
