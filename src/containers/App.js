@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import ExpressionField from '../components/ExpressionField';
 import ExpressionDisplay from '../components/ExpressionDisplay';
+import VariablesList from '../components/VariablesList'
 
 import { connect } from 'react-redux';
 import { changeExpressionField } from '../actions';
@@ -32,12 +33,14 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="flex flex-row flex-wrap">
-          <div className="flex flex-column justify-center items-center">
+          <div className="flex flex-column justify-start items-center">
             <p className="dim black dib ma0 f4-ns pa2">Insert Expression</p>
             <ExpressionField expressionChangeFunction={onExpressionChange}/>
             <ExpressionDisplay expressionString={expression}/>
           </div>
-          <div className="flex- flex-column justify-center">
+          <div className="flex flex-column justify-start items-center">
+            <p className="dim black dib ma0 f4-ns pa2">Variables</p>
+            <VariablesList expressionString={expression} />  
           </div>
         </div>
       </div>
