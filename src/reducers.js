@@ -2,6 +2,8 @@ import {
     CHANGE_EXPRESSION_FIELD,
     ADD_VARIABLE,
     REMOVE_VARIABLE,
+    CHARGE_VARIABLES,
+    MODIFY_VARIABLE_FIELD,
     CALCULATE_RESULT,
 } from "./constants"
 import update from 'immutability-helper';
@@ -15,17 +17,34 @@ const initialState = {
     result: { result: 0, uncertainity: 0}
 };
 
-export const changeExpressionField = ( state = initialState, action = {}) => {
+export const setExpressionField = ( state = initialState, action = {}) => {
     switch(action.type){
         case CHANGE_EXPRESSION_FIELD:
             return Object.assign({}, state, {expression: action.payload});
         default: 
-        return state;
+            return state;
+    }
+}
+export const setVariables = ( state = initialState, action = {}) => {
+    switch(action.type){
+        case CHARGE_VARIABLES:
+            return Object.assign({},state,{ variables : action.payload})
+        default:
+            return state;
     }
 }
 
-export const modifyVariables = (state = initialState, action = {}) => {
+export const setVariablesChanges = (state = initialState, action = {}) => {
     switch(action.type){
+        case MODIFY_VARIABLE_FIELD:
+            return Object.assign({}, state, { 
+                variables : state.variables.map( (variable) => { 
+                    if (variable[0] === action.payload[0]){
+                        return action.payload;
+                    }   
+                })
+            }) 
+
         case ADD_VARIABLE:
             return update(state, {
                 variables: {
