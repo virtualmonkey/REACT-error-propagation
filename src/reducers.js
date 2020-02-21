@@ -1,3 +1,4 @@
+import {getPropagation} from './propagation'
 import {
     CHANGE_EXPRESSION_FIELD,
     ADD_VARIABLE,
@@ -12,10 +13,12 @@ import _ from 'lodash';
 
 
 const initialState = {
-    expression: '', // needs to be a string cuz mathJax
-    variables: [],
+    expression: 'x*y', // needs to be a string cuz mathJax
+    variables: [['x',1,0.1],['y',2,0.1]],
     result: { result: 0, uncertainity: 0}
 };
+console.log(getPropagation(initialState))
+
 
 export const setExpressionField = ( state = initialState, action = {}) => {
     switch(action.type){
