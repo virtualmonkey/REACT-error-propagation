@@ -6,7 +6,7 @@ import ExpressionDisplay from '../components/ExpressionDisplay';
 import VariablesList from '../components/VariablesList'
 
 import { connect } from 'react-redux';
-import { changeExpressionField } from '../actions';
+import { changeExpressionField, chargeVariables} from '../actions';
 
 
 // App.js inherits the state object provided by Provider in index.js this is implicit 
@@ -14,6 +14,7 @@ import { changeExpressionField } from '../actions';
 const mapStateToProps = (state) => {
   return {
       expression:  state.setExpressionField.expression,
+      variables: state.setVariables.variables
   }
 }
 // App.js inherits the dispatch provided by Provider in index.js due to the redux implementation
@@ -22,25 +23,30 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       onExpressionChange: (event) => dispatch(changeExpressionField(event.target.value)),
+      onVariablesChange: (updatedVariablesList) => dispatch(chargeVariables(updatedVariablesList)) 
   }
 }
 
 
 class App extends Component {
   render(){
-    const { onExpressionChange, expression } = this.props;   
+    const { 
+      onExpressionChange,
+      onVariablesChange,
+      expression, 
+    } = this.props;   
     return (
       <div className="App">
         <Header />
-        <div className="flex flex-row flex-wrap">
-          <div className="flex flex-column justify-start items-center">
+        <div className="flex flex-row flex-wrap justify-around items-start">
+          <div className="pa2 flex flex-column justify-start items-center">
             <p className="dim black dib ma0 f4-ns pa2">Insert Expression</p>
-            <ExpressionField expressionChangeFunction={onExpressionChange}/>
+            <ExpressionField expressionChangeFunction={onExpressionChange} variablesChangeFunction={onVariablesChange}/>
             <ExpressionDisplay expressionString={expression}/>
           </div>
-          <div className="flex flex-column justify-start items-center">
+          <div className="pa2 flex flex-column justify-start items-center">
             <p className="dim black dib ma0 f4-ns pa2">Variables</p>
-            <VariablesList expressionString={expression} />  
+            <VariablesList />  
           </div>
         </div>
       </div>

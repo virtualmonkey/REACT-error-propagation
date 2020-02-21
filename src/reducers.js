@@ -8,13 +8,12 @@ import {
 } from "./constants"
 
 import update from 'immutability-helper';
+import _ from 'lodash';
+
 
 const initialState = {
     expression: '', // needs to be a string cuz mathJax
-    variables: [
-        ['x',0.200,0.00005],
-        ['z',0.1145,0.00005]
-    ],
+    variables: [],
     result: { result: 0, uncertainity: 0}
 };
 
@@ -29,7 +28,9 @@ export const setExpressionField = ( state = initialState, action = {}) => {
 export const setVariables = ( state = initialState, action = {}) => {
     switch(action.type){
         case CHARGE_VARIABLES:
-            return Object.assign({},state,{ variables : action.payload})
+            const newVariables = [...state.variables].filter( variable => action.payload.includes(variable[0]));
+            const diff = _.difference(action.payload, newVariables.map(variable => variable[0]));
+            return Object.assign({},state,{ variables : [...newVariables, ...diff.map(variableName => [variableName,0,0])]});
         default:
             return state;
     }

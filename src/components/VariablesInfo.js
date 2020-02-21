@@ -3,17 +3,11 @@ import React from 'react';
 
 const VariablesInfo = () => {
     return(
-        <div class="pa2">
-            <div class="fl w-33 w-33-ns tc pv5 bg-black-05">
-                PRUEBA 1
-            </div>
-            <div class="fl w-33 w-33-ns tc pv5 bg-black-10">
-                PRUEBA 2
-            </div>
-            <div class="fl w-33 w-33-ns tc pv5 bg-black-20">
-                PRUEBA 3
-            </div>
-        </div>
+        <tr>
+            <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Variable Name</th>
+            <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Value</th>
+            <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Uncertainity</th>
+        </tr>
     );
 }
 
