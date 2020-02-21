@@ -1,4 +1,3 @@
-import {getPropagation} from './propagation'
 import {
     CHANGE_EXPRESSION_FIELD,
     ADD_VARIABLE,
@@ -17,7 +16,6 @@ const initialState = {
     variables: [['x',1,0.1],['y',2,0.1]],
     result: { result: 0, uncertainity: 0}
 };
-console.log(getPropagation(initialState))
 
 
 export const setExpressionField = ( state = initialState, action = {}) => {

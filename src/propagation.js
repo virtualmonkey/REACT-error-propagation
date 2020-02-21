@@ -10,9 +10,13 @@ export const getPropagation = (state = {
         ...scope,
         [i[0]] : i[1]
     })
-    const currResult = {
+    let uncertainity = 0;
+    state.variables.map(currentValue => {
+        uncertainity += (parseInt(derivative(state.expression, currentValue[0]).evaluate(scope))*currentValue[2])
+        return uncertainity})
+    const result = {
         result: evaluate(state.expression,scope),
-        uncertainity: state.variables.reduce((accumulator, currentValue) => ((derivative(state.expression, currentValue[0]).evaluate(scope)*currentValue[2]) + accumulator))
+        uncertainity: uncertainity
     }
-    return {...state,...currResult}
+    return {...state,result}
 }
