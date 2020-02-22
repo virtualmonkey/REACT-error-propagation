@@ -12,26 +12,27 @@ import _ from 'lodash';
 
 
 const initialState = {
-    expression: 'x*y', // needs to be a string cuz mathJax
-    variables: [['x',1,0.1],['y',2,0.1]],
+    expression: '', // needs to be a string cuz mathJax
+    variables: [],
     result: { result: 0, uncertainity: 0}
 };
 
 
-export const setExpressionField = ( state = initialState, action = {}) => {
+export const setExpressionField = ( state = '', action = {}) => {
     switch(action.type){
         case CHANGE_EXPRESSION_FIELD:
-            return Object.assign({}, state, {expression: action.payload});
+            //return Object.assign({}, state, {expression: action.payload});
+            return action.payload;
         default: 
             return state;
     }
 }
-export const setVariables = ( state = initialState, action = {}) => {
+export const setVariables = ( state = [], action = {}) => {
     switch(action.type){
         case CHARGE_VARIABLES:
-            const newVariables = [...state.variables].filter( variable => action.payload.includes(variable[0]));
+            const newVariables = [...state].filter( variable => action.payload.includes(variable[0]));
             const diff = _.difference(action.payload, newVariables.map(variable => variable[0]));
-            return Object.assign({},state,{ variables : [...newVariables, ...diff.map(variableName => [variableName,0,0])]});
+            return  [...newVariables, ...diff.map(variableName => [variableName,0,0])];
         default:
             return state;
     }

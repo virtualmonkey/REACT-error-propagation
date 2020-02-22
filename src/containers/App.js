@@ -13,8 +13,8 @@ import { changeExpressionField, chargeVariables} from '../actions';
 // in the call to mapStateProps in the bottom line of this file
 const mapStateToProps = (state) => {
   return {
-      expression:  state.setExpressionField.expression,
-      variables: state.setVariables.variables
+      expression:  state.setExpressionField,
+      variables: state.setVariables
   }
 }
 // App.js inherits the dispatch provided by Provider in index.js due to the redux implementation
@@ -33,8 +33,8 @@ class App extends Component {
     const { 
       onExpressionChange,
       onVariablesChange,
-      expression, 
-    } = this.props;   
+      expression
+    } = this.props;
     return (
       <div className="App">
         <Header />
