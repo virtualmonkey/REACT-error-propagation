@@ -17,7 +17,6 @@ const initialState = {
     result: { result: 0, uncertainity: 0}
 };
 
-
 export const setExpressionField = ( state = '', action = {}) => {
     switch(action.type){
         case CHANGE_EXPRESSION_FIELD:

@@ -11,12 +11,18 @@ export const getPropagation = (state = {
         [i[0]] : i[1]
     })
     let uncertainity = 0;
-    state.variables.map(currentValue => {
-        uncertainity += (parseInt(derivative(state.expression, currentValue[0]).evaluate(scope))*currentValue[2])
-        return uncertainity})
-    const result = {
-        result: evaluate(state.expression,scope),
-        uncertainity: uncertainity
+    try{
+        state.variables.map(currentValue => {
+            uncertainity += (parseInt(derivative(state.expression, currentValue[0]).evaluate(scope))*currentValue[2])
+            return uncertainity})
+        const result = {
+            result: evaluate(state.expression,scope),
+            uncertainity: uncertainity
+        }
+        return {...state,result}
     }
-    return {...state,result}
+    catch{
+        //return 'error'
+    }
+    return state
 }
