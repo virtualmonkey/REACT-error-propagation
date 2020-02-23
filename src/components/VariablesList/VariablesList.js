@@ -1,5 +1,5 @@
 import React from 'react';
-import Variable from './Variable';
+import Variable from '../Variable/Variable';
 
 const VariablesList = ({variablesList, variableModifiedFunction}) => {
     const variablesArray = variablesList.map((variable, i) =>{

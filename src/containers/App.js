@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import Header from '../components/Header';
-import ExpressionField from '../components/ExpressionField';
-import ExpressionDisplay from '../components/ExpressionDisplay';
-import VariablesList from '../components/VariablesList';
-import Result from '../components/Result';
+import Header from '../components/Header/Header';
+import ExpressionField from '../components/ExpressionField/ExpressionField';
+import ExpressionDisplay from '../components/ExpressionDisplay/ExpressionDisplay';
+import VariablesList from '../components/VariablesList/VariablesList';
+import Result from '../components/Result/Result';
 
 import { connect } from 'react-redux';
-import { changeExpressionField, chargeVariables, variableModified, calculateResult} from '../actions';
+import { changeExpressionField, chargeVariables, modifyVariable, calculateResult} from '../actions';
 
 
 // App.js inherits the state object provided by Provider in index.js this is implicit 
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
       onExpressionChange: (event) => dispatch(changeExpressionField(event.target.value)),
       onVariablesChange: (updatedVariablesList) => dispatch(chargeVariables(updatedVariablesList)), 
-      onVariableModified: (modifiedVariable) => dispatch(variableModified(modifiedVariable)),
+      onVariableModified: (modifiedVariable) => dispatch(modifyVariable(modifiedVariable)),
       onCalculateResult: (result) => dispatch(calculateResult(result))
   }
 }

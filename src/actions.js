@@ -1,13 +1,13 @@
 import {
-    CHANGE_EXPRESSION_FIELD,
-    CHARGE_VARIABLES,
+    EXPRESSION_FIELD_CHANGED,
+    VARIABLES_CHARGED,
     VARIABLE_MODIFIED,
-    CALCULATE_RESULT,
-} from "./constants"
+    RESULT_CALCULATED,
+} from "./types"
 
 export const changeExpressionField = (expressionText) => {
     return {
-        type: CHANGE_EXPRESSION_FIELD,
+        type: EXPRESSION_FIELD_CHANGED,
         payload: expressionText
     }
 };
@@ -15,13 +15,13 @@ export const changeExpressionField = (expressionText) => {
 // variablesArray has arrays of each variables, [['x', 2, 0.0002],['y', 10, 0.05]] 
 export const chargeVariables = (variablesArray) => {
     return {
-        type: CHARGE_VARIABLES,
+        type: VARIABLES_CHARGED,
         payload: variablesArray
     }
 }
 
 // variables is an array with structure ['name', value, uncertainity]
-export const variableModified = (variable) => {
+export const modifyVariable = (variable) => {
     return {
         type: VARIABLE_MODIFIED,
         payload: variable
@@ -30,7 +30,7 @@ export const variableModified = (variable) => {
 
 export const calculateResult = (result) => {
     return {
-        type: CALCULATE_RESULT,
+        type: RESULT_CALCULATED,
         payload: result
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import getResult from '../propagation'
+import getResult from '../../propagation'
 
 const Result = ({ expressionString, variablesList, prevResultDic, calculateResultFunction}) => {
     return(

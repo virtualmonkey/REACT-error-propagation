@@ -1,12 +1,6 @@
 import React from 'react';
-import constantGetterFromASCIIMath from '../parser';
+import constantGetterFromASCIIMath from '../../parser';
 
-// const extractVariables = (expressionString) => {
-//     // falta la lógica para quitar strings como sqrt etc.
-//     return (expressionString.replace(/[^A-Za-z]/g, '')).split('').filter((item, pos, self) => {
-//         return self.indexOf(item) === pos;
-//       });
-// }
 const ExpressionField = ({expressionChangeFunction, variablesChangeFunction}) => {
     return (
         <div className="pa2">
