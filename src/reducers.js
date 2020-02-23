@@ -12,7 +12,7 @@ import _ from 'lodash';
 const initialState = {
     expression: '', // needs to be a string cuz mathJax
     variables: [],
-    result: { result: 0, uncertainity: 0}
+    result: { total: 0, uncertainity: 0}
 };
 
 export const setExpressionField = ( state = '', action = {}) => {
@@ -32,7 +32,6 @@ export const setVariables = ( state = [], action = {}) => {
         case VARIABLE_MODIFIED:
             return state.map(variable => {
                 if (variable[0] === action.payload[0]){
-                    console.log(action.payload);
                     return action.payload;
                 } else {
                     return variable;
@@ -74,10 +73,10 @@ export const setVariables = ( state = [], action = {}) => {
 //             return state;
 //     }
 // }
-export const modifyResult = (state = initialState, action = {}) => {
+export const modifyResult = (state = {}, action = {}) => {
     switch(action.type){
         case CALCULATE_RESULT:
-            return Object.assign({}, state, {result: action.payload});
+            return {...state, ...action.payload};
         default:
             return state;
     }

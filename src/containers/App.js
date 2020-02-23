@@ -6,7 +6,7 @@ import ExpressionDisplay from '../components/ExpressionDisplay';
 import VariablesList from '../components/VariablesList'
 
 import { connect } from 'react-redux';
-import { changeExpressionField, chargeVariables, variableModified} from '../actions';
+import { changeExpressionField, chargeVariables, variableModified, calculateResult} from '../actions';
 
 
 // App.js inherits the state object provided by Provider in index.js this is implicit 
@@ -14,7 +14,8 @@ import { changeExpressionField, chargeVariables, variableModified} from '../acti
 const mapStateToProps = (state) => {
   return {
       expression:  state.setExpressionField,
-      variables: state.setVariables
+      variables: state.setVariables,
+      result: state.result
   }
 }
 // App.js inherits the dispatch provided by Provider in index.js due to the redux implementation
@@ -24,7 +25,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
       onExpressionChange: (event) => dispatch(changeExpressionField(event.target.value)),
       onVariablesChange: (updatedVariablesList) => dispatch(chargeVariables(updatedVariablesList)), 
-      onVariableModified: (modifiedVariable) => dispatch(variableModified(modifiedVariable))
+      onVariableModified: (modifiedVariable) => dispatch(variableModified(modifiedVariable)),
+      onResultChange: (result) => dispatch(calculateResult(result))
   }
 }
 
