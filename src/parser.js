@@ -25,13 +25,13 @@ const ASCIIMathWords = ['cdot','ast','star',
     'vdots','cdots','aleph','oo','O/','grad','del','oint',
     'int','root','sqrt','^','uuu','uu','nnn','nn','vvv',
     'vv','prod','sum','o.','ox','o+','@','xx','-','0','1',
-    '2','3','4','5','6','7','8','9',
+    '2','3','4','5','6','7','8','9',,'pi','Pi','e'
 ]
 
 const ASCIIGreekLetters = ['alpha','beta','gamma','Gamma',
     'delta','epsilon','varepsilon','zeta','theta',
     'Theta','vartheta','iota','kappa','lambda','Lambda',
-    'mu','nu','xi','Xi','pi','Pi','rho','sigma','Sigma',
+    'mu','nu','xi','Xi','rho','sigma','Sigma',
     'tau','upsilon','phi','Phi','varphi','chi','psi',
     'Psi','omega','Omega'
 ]
