@@ -1,28 +1,26 @@
 import { derivative,evaluate} from 'mathjs'
 
-export const getPropagation = (state = {
-    expression: '', // needs to be a string cuz mathJax
-    variables: [],
-    result: { result: 0, uncertainity: 0}
-}) => {
+const getResult = (expression, variables, prevResult) => {
     let scope = {}
-    state.variables.map(i => scope={
+    variables.map(i => scope={
         ...scope,
         [i[0]] : i[1]
     })
     let uncertainity = 0;
     try{
-        state.variables.map(currentValue => {
-            uncertainity += (parseInt(derivative(state.expression, currentValue[0]).evaluate(scope))*currentValue[2])
+        variables.map(currentValue => {
+            uncertainity += (parseInt(derivative(expression, currentValue[0]).evaluate(scope))*currentValue[2])
             return uncertainity})
         const result = {
-            result: evaluate(state.expression,scope),
+            total: evaluate(expression,scope),
             uncertainity: uncertainity
         }
-        return {...state,result}
+        return result;
     }
     catch{
-        //return 'error'
+        return prevResult;
     }
-    return state
 }
+
+
+export default getResult;

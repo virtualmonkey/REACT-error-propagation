@@ -8,13 +8,6 @@ import {
 //import update from 'immutability-helper';
 import _ from 'lodash';
 
-
-const initialState = {
-    expression: '', // needs to be a string cuz mathJax
-    variables: [],
-    result: { total: 0, uncertainity: 0}
-};
-
 export const setExpressionField = ( state = '', action = {}) => {
     switch(action.type){
         case CHANGE_EXPRESSION_FIELD:
@@ -41,38 +34,6 @@ export const setVariables = ( state = [], action = {}) => {
             return state;
     }
 }
-
-// export const setVariablesChanges = (state = initialState, action = {}) => {
-//     switch(action.type){
-//         case VARIABLE_MODIFIED:
-//             return Object.assign({}, state, { 
-//                 variables : state.variables.map( (variable) => { 
-//                     if (variable[0] === action.payload[0]){
-//                         return action.payload;
-//                     } else {
-//                         return variable;
-//                     }
-//                 })
-//             }) 
-
-//         case ADD_VARIABLE:
-//             return update(state, {
-//                 variables: {
-//                     $push : action.payload
-//                 }
-//             });
-//         case REMOVE_VARIABLE:
-//             return Object.assign({}, state, {variables: state.variables.filter( variable =>{ return variable[0] !== action.payload; })});
-//             // return {...state, 
-//             //     variables: state.variables.filter(
-//             //         (variable) => {
-//             //             return variable[0] !== action.payload;
-//             //         })
-//             //  }
-//         default:
-//             return state;
-//     }
-// }
 export const modifyResult = (state = {}, action = {}) => {
     switch(action.type){
         case CALCULATE_RESULT:
