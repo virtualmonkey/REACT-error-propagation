@@ -1,13 +1,11 @@
 import {
     CHANGE_EXPRESSION_FIELD,
-    ADD_VARIABLE,
-    REMOVE_VARIABLE,
     CHARGE_VARIABLES,
-    MODIFY_VARIABLE_FIELD,
+    VARIABLE_MODIFIED,
     CALCULATE_RESULT,
 } from "./constants"
 
-import update from 'immutability-helper';
+//import update from 'immutability-helper';
 import _ from 'lodash';
 
 
@@ -20,7 +18,6 @@ const initialState = {
 export const setExpressionField = ( state = '', action = {}) => {
     switch(action.type){
         case CHANGE_EXPRESSION_FIELD:
-            //return Object.assign({}, state, {expression: action.payload});
             return action.payload;
         default: 
             return state;
@@ -32,42 +29,51 @@ export const setVariables = ( state = [], action = {}) => {
             const newVariables = [...state].filter( variable => action.payload.includes(variable[0]));
             const diff = _.difference(action.payload, newVariables.map(variable => variable[0]));
             return  [...newVariables, ...diff.map(variableName => [variableName,0,0])];
-        default:
-            return state;
-    }
-}
-
-export const setVariablesChanges = (state = initialState, action = {}) => {
-    switch(action.type){
-        case MODIFY_VARIABLE_FIELD:
-            return Object.assign({}, state, { 
-                variables : state.variables.map( (variable) => { 
-                    if (variable[0] === action.payload[0]){
-                        return action.payload;
-                    } else {
-                        return variable;
-                    }
-                })
-            }) 
-
-        case ADD_VARIABLE:
-            return update(state, {
-                variables: {
-                    $push : action.payload
+        case VARIABLE_MODIFIED:
+            return state.map(variable => {
+                if (variable[0] === action.payload[0]){
+                    console.log(action.payload);
+                    return action.payload;
+                } else {
+                    return variable;
                 }
-            });
-        case REMOVE_VARIABLE:
-            return Object.assign({}, state, {variables: state.variables.filter( variable =>{ return variable[0] !== action.payload; })});
-            // return {...state, 
-            //     variables: state.variables.filter(
-            //         (variable) => {
-            //             return variable[0] !== action.payload;
-            //         })
-            //  }
+            })    
         default:
             return state;
     }
 }
+
+// export const setVariablesChanges = (state = initialState, action = {}) => {
+//     switch(action.type){
+//         case VARIABLE_MODIFIED:
+//             return Object.assign({}, state, { 
+//                 variables : state.variables.map( (variable) => { 
+//                     if (variable[0] === action.payload[0]){
+//                         return action.payload;
+//                     } else {
+//                         return variable;
+//                     }
+//                 })
+//             }) 
+
+//         case ADD_VARIABLE:
+//             return update(state, {
+//                 variables: {
+//                     $push : action.payload
+//                 }
+//             });
+//         case REMOVE_VARIABLE:
+//             return Object.assign({}, state, {variables: state.variables.filter( variable =>{ return variable[0] !== action.payload; })});
+//             // return {...state, 
+//             //     variables: state.variables.filter(
+//             //         (variable) => {
+//             //             return variable[0] !== action.payload;
+//             //         })
+//             //  }
+//         default:
+//             return state;
+//     }
+// }
 export const modifyResult = (state = initialState, action = {}) => {
     switch(action.type){
         case CALCULATE_RESULT:

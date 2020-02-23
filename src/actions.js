@@ -1,9 +1,7 @@
 import {
     CHANGE_EXPRESSION_FIELD,
-    ADD_VARIABLE,
-    REMOVE_VARIABLE,
     CHARGE_VARIABLES,
-    MODIFY_VARIABLE_FIELD,
+    VARIABLE_MODIFIED,
     CALCULATE_RESULT,
 } from "./constants"
 
@@ -11,21 +9,6 @@ export const changeExpressionField = (expressionText) => {
     return {
         type: CHANGE_EXPRESSION_FIELD,
         payload: expressionText
-    }
-};
-
-// newVariable is an array with structure  [ name, value, uncertainity ]
-export const addVariable = (newVariable) => {
-    return {
-        type: ADD_VARIABLE,
-        payload: newVariable
-    }
-};
-
-export const removeVariable = (variableName) => {
-    return {
-        type: REMOVE_VARIABLE,
-        payload: variableName
     }
 };
 
@@ -38,9 +21,9 @@ export const chargeVariables = (variablesArray) => {
 }
 
 // variables is an array with structure ['name', value, uncertainity]
-export const modifyVariableField = (variable) => {
+export const variableModified = (variable) => {
     return {
-        type: MODIFY_VARIABLE_FIELD,
+        type: VARIABLE_MODIFIED,
         payload: variable
     }
 }

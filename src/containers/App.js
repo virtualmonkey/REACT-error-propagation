@@ -6,7 +6,7 @@ import ExpressionDisplay from '../components/ExpressionDisplay';
 import VariablesList from '../components/VariablesList'
 
 import { connect } from 'react-redux';
-import { changeExpressionField, chargeVariables} from '../actions';
+import { changeExpressionField, chargeVariables, variableModified} from '../actions';
 
 
 // App.js inherits the state object provided by Provider in index.js this is implicit 
@@ -23,7 +23,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       onExpressionChange: (event) => dispatch(changeExpressionField(event.target.value)),
-      onVariablesChange: (updatedVariablesList) => dispatch(chargeVariables(updatedVariablesList)) 
+      onVariablesChange: (updatedVariablesList) => dispatch(chargeVariables(updatedVariablesList)), 
+      onVariableModified: (modifiedVariable) => dispatch(variableModified(modifiedVariable))
   }
 }
 
@@ -33,7 +34,9 @@ class App extends Component {
     const { 
       onExpressionChange,
       onVariablesChange,
-      expression
+      onVariableModified,
+      expression,
+      variables
     } = this.props;
     return (
       <div className="App">
@@ -46,7 +49,7 @@ class App extends Component {
           </div>
           <div className="pa2 flex flex-column justify-start items-center">
             <p className="dim black dib ma0 f4-ns pa2">Variables</p>
-            <VariablesList />  
+            <VariablesList variablesList={variables} variableModifiedFunction={onVariableModified}/>  
           </div>
         </div>
       </div>
