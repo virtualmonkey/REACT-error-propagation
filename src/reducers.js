@@ -1,15 +1,17 @@
-import {
-    EXPRESSION_FIELD_CHANGED,
-    VARIABLES_CHARGED,
-    VARIABLE_MODIFIED,
-    RESULT_CALCULATED,
-} from "./types"
 
+import {
+    CHANGE_EXPRESSION_FIELD,
+    CHARGE_VARIABLES,
+    VARIABLE_MODIFIED,
+    CALCULATE_RESULT,
+} from "./constants"
+
+//import update from 'immutability-helper';
 import _ from 'lodash';
 
 export const setExpressionField = ( state = '', action = {}) => {
     switch(action.type){
-        case EXPRESSION_FIELD_CHANGED:
+        case CHANGE_EXPRESSION_FIELD:
             return action.payload;
         default: 
             return state;
@@ -17,7 +19,7 @@ export const setExpressionField = ( state = '', action = {}) => {
 }
 export const setVariables = ( state = [], action = {}) => {
     switch(action.type){
-        case VARIABLES_CHARGED:
+        case CHARGE_VARIABLES:
             const newVariables = [...state].filter( variable => action.payload.includes(variable[0]));
             const diff = _.difference(action.payload, newVariables.map(variable => variable[0]));
             return  [...newVariables, ...diff.map(variableName => [variableName,0,0])];
@@ -35,7 +37,7 @@ export const setVariables = ( state = [], action = {}) => {
 }
 export const modifyResult = (state = {}, action = {}) => {
     switch(action.type){
-        case RESULT_CALCULATED:
+        case CALCULATE_RESULT:
             return {...state, ...action.payload};
         default:
             return state;

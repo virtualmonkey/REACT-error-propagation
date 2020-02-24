@@ -6,18 +6,19 @@ const getResult = (expression, variables, prevResult) => {
         ...scope,
         [i[0]] : i[1]
     })
-    let uncertainity = 0;
+    let uncertainty = 0;
     try{
         variables.map(currentValue => {
-            uncertainity += (parseInt(derivative(expression, currentValue[0]).evaluate(scope))*currentValue[2])
-            return uncertainity})
+            uncertainty += Math.pow((parseInt(derivative(expression, currentValue[0]).evaluate(scope))*currentValue[2]),2) 
+            return uncertainty})
         const result = {
             total: evaluate(expression,scope),
-            uncertainity: uncertainity
+            uncertainity: Math.sqrt(uncertainty)
         }
         return result;
     }
-    catch{
+    catch(err){
+        console.log(err)
         return prevResult;
     }
 }
