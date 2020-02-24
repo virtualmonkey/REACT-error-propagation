@@ -3,7 +3,7 @@ import getResult from '../../propagation'
 
 const Result = ({ expressionString, variablesList, prevResultDic, calculateResultFunction}) => {
     return(
-        <div className="pa2 flex flex-column justify-start items-center w-100">
+        <div className="pa4 flex flex-column justify-start items-center w-100">
             <input 
                 onClick={(e) => calculateResultFunction(getResult(expressionString,variablesList,prevResultDic))} 
                 className="f6 b br3 b--black ph3 pv2 input-reset ba bg-transparent grow pointer dib" 
