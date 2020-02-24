@@ -3,18 +3,20 @@ import React from 'react';
 
 const Header = () => {
     return(
-        <header className="bg-black-90 w-100 ph3 pv3 pv1-ns ph4-m ph5-l">
-            <nav className="f6 fw1-ns ttu tracked flex justify-between">
-                {/* justify-around works fine for small screen, perhaps ill use some media queries? */}
-                <h2 className="dim white dib mr3">Error Propagation Calculator</h2>
-                <div className="flex flex-row items-center">
-                    <p className="dim white dib ma0 f7-ns">Made by:</p>
-                    <a className="link dim white dib ma2 f7-ns" href="https://github.com/AlejandroUrbina212" title="AU" target="blank">Alejandro Urbina</a>
-                    <p className="dim white dib ma0 f7-ns">&</p>
-                    <a className="link dim white dib ma2 f7" href="https://github.com/suulcoder" title="SC" target="blank">Saúl Contreras</a>
-                </div>
-            </nav>
-        </header>
+        <nav className="bg-black-90 db dt-l w-100 border-box pa3 ph5-l">
+            <div className="db dtc-l v-mid mid-gray dim w-100 w-25-l tc tl-l mb2 mb0-l">
+                {/* <img src="http://tachyons.io/img/logo.jpg" className="dib w2 h2 br-100" alt="Site Name"/> */}
+                <h3 className="light-gray dib mv2">Error Propagation Calculator</h3>
+            </div>
+            <div className="db dtc-l v-mid w-100 w-75-l tc tr-l">
+                {/* <a className="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="#" title="Home">Home</a>
+                <a className="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="#" title="How it Works">How it Works</a>
+                <a className="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="#" title="Blog">Blog</a> */}
+                {/* <p className="dim light-gray f6 f5-l dib ma2">Made by:</p> */}
+                <a className="link dim light-gray f6 f5-l dib mr3 mr4-l" href="https://github.com/AlejandroUrbina212" title="Developer" target="blank">Alejandro Urbina</a>
+                <a className="link dim light-gray f6 f5-l dib" href="https://github.com/suulcoder" title="Developer" target="blank">Saúl Contreras</a>
+            </div>
+        </nav>
     );
 }
 
