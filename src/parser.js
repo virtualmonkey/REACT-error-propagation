@@ -4,15 +4,15 @@ const mathWordsASCII = ['twoheadrightarrowtail','twoheadrightarrow','backslashse
 'supseteq','subseteq','rceiling','overline','lceiling','emptyset','bidwedge','|ldots|',
 'uparrow','partial','overset','overset','implies','diamond','because','ubrace','supset',
 'succeq','subset','square','rtimes','rfloor','rangle','propto','preceq','otimes','obrace',
-'models','mod','gcd','lcm','lub','mapsto','ltimes','lfloor','langle','forall','exists','cancel','bowtie','bigvee',
-'bigcup','glb','min','max','bigcap','approx','wedge','vdots','vdash','times','oplus','notin','nabla','infty',
+'models','mapsto','ltimes','lfloor','langle','forall','exists','cancel','bowtie','bigvee',
+'bigcup','bigcap','approx','wedge','vdots','vdash','times','oplus','notin','nabla','infty',
 'frown','floor','equiv','ddots','ddot ','color','cdots','angle','aleph','uarr','text','succ',
-'sinh','cosh','tanh','sech','csch','star','sqrt','root','rarr','rArr','quad','prod','prec','oint','odot','norm','larr','lArr',
-'harr','hArr','grad','frac','darr','coth','exp','log','det','dim','cong','circ','ceil','cdot','vvv','vee','vec','uuu','top',
-'sin','cos','tan','cot','sec','sum','not','nnn','neg','int','iff','hat','dot','div','del','cup','cap','bot','bb','bar','ast',
-'csc','and','abs','CC','RR','NN','QQ','ZZ','xx','vv','uu','ul','tt','to','sf','pm','pi','ox','or','oo','o.','o+','nn','ne',
-'arcsin','arccos','arctan','in','ln','lt','le','gt','ge','fr','cc','bbb','al','Pi','O/','~','}','|','{','_','^','T','@','>','=','<',
-'9','8','7','6','5','4','3','2','1','0','/','-','-','"','e'
+'star','sqrt','root','rarr','rArr','quad','prod','prec','oint','odot','norm','larr','lArr',
+'harr','hArr','grad','frac','darr','cong','circ','ceil','cdot','vvv','vee','vec','uuu','top',
+'sum','not','nnn','neg','int','iff','hat','dot','div','del','cup','cap','bot','bb','bar','ast',
+'and','abs','CC','RR','NN','QQ','ZZ','xx','vv','uu','ul','tt','to','sf','pm','pi','ox','or','oo','o.','o+','nn','ne',
+'lt','le','gt','ge','fr','cc','bbb','al','Pi','O/','~','}','|','{','_','^','T','@','>','=','<',
+'9','8','7','6','5','4','3','2','1','0','/','-','-','"'
 ];
 
 const greekLettersASCII = ['alpha','beta','gamma','Gamma',

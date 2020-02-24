@@ -7,7 +7,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "asciimath-to-latex": "^0.3.2",
-    "immutability-helper": "^3.0.1",
     "katex": "^0.11.1",
     "lodash": "^4.17.15",
     "mathjs": "^6.6.0",
