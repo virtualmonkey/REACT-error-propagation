@@ -21,7 +21,7 @@ const VariablesList = ({variablesList, variableModifiedFunction}) => {
                         <tr>
                             <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Name</th>
                             <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Value</th>
-                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Uncertainity</th>
+                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Uncertainty</th>
                         </tr>
                     </thead>
                     <tbody className="lh-copy">

@@ -19,7 +19,7 @@ const Result = ({ expressionString, variablesList, prevResultDic, calculateResul
                             {prevResultDic.total}
                         </td>
                         <td className="pv3 pr3 bb b--black-20 tc georgia i">
-                            Uncertainity: 
+                            Uncertainty: 
                         </td>
                         <td className="pv3 pr3 bb b--black-20 tc">
                             {prevResultDic.uncertainty}
