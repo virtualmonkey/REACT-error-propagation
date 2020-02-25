@@ -8,7 +8,7 @@ const VariablesList = ({variablesList, variableModifiedFunction}) => {
                 key ={i}
                 name = {variable[0]}
                 value = {variable[1]}
-                uncertainity = {variable[2]}
+                uncertainty = {variable[2]}
                 variableModified = {variableModifiedFunction}
             />
         );

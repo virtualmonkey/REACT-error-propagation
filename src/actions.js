@@ -20,7 +20,7 @@ export const chargeVariables = (variablesArray) => {
     }
 }
 
-// variables is an array with structure ['name', value, uncertainity]
+// variables is an array with structure ['name', value, uncertainty]
 export const modifyVariable = (variable) => {
     return {
         type: VARIABLE_MODIFIED,

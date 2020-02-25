@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Variable = ({ name, value, uncertainity, variableModified}) => {
+const Variable = ({ name, value, uncertainty, variableModified}) => {
     return(
         <tr>
             <td className="pv3 pr3 bb b--black-20 tc georgia i">
@@ -11,13 +11,13 @@ const Variable = ({ name, value, uncertainity, variableModified}) => {
                 type="tel" 
                 placeholder={value}
                 aria-describedby="value"
-                onChange = {(e)=>variableModified([name, e.target.value, uncertainity])}/>
+                onChange = {(e)=>variableModified([name, e.target.value, uncertainty])}/>
             </td>
             <td className="pv3 pr3 bb b--black-20">
-                <input id="uncertainity" className="input-reset ba b--black-20 pa2 db w-100" 
+                <input id="uncertainty" className="input-reset ba b--black-20 pa2 db w-100" 
                 type="tel" 
-                aria-describedby="uncertainity" 
-                placeholder={uncertainity}
+                aria-describedby="uncertainty" 
+                placeholder={uncertainty}
                 onChange = {(e)=>variableModified([name, value, e.target.value])}/>
             </td>
         </tr>
