@@ -3,28 +3,25 @@ import getResult from '../../propagation'
 
 const Result = ({ expressionString, variablesList, prevResultDic, calculateResultFunction}) => {
     return(
-        <div className="pa4 flex flex-column justify-start items-center w-100">
+        <div className="pv2 ph3 flex flex-column justify-start items-center w-100">
             <input 
                 onClick={(e) => calculateResultFunction(getResult(expressionString,variablesList,prevResultDic))} 
                 className="f6 b br3 b--black ph3 pv2 input-reset ba bg-transparent grow pointer dib" 
                 type="submit" 
                 value="Calculate Result"/>
-            <table className="f6 w-100 mw8 center" cellSpacing="0">
+            <table className="pa3 f6 w-100 mw8 center" cellSpacing="0">
                 <tbody className="lh-copy">   
                     <tr>
-                        <td className="pv3 pr3 bb b--black-20 tc georgia i">
-                            Value: 
+                        <td className="pv3 pr3 bb bt b--black-20 tc">
+                             {'Value: ' + prevResultDic.total}
                         </td>
+                    </tr>    
+                    <tr>
                         <td className="pv3 pr3 bb b--black-20 tc">
-                            {prevResultDic.total}
+                            
+                            {'Uncertainty: ' + prevResultDic.uncertainty} 
                         </td>
-                        <td className="pv3 pr3 bb b--black-20 tc georgia i">
-                            Uncertainty: 
-                        </td>
-                        <td className="pv3 pr3 bb b--black-20 tc">
-                            {prevResultDic.uncertainty}
-                        </td>
-                    </tr>                     
+                    </tr>                 
                 </tbody>
             </table>
             

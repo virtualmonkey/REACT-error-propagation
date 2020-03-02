@@ -13,6 +13,8 @@ import { changeExpressionField, chargeVariables, modifyVariable, calculateResult
 // App.js inherits the state object provided by Provider in index.js this is implicit 
 // in the call to mapStateProps in the bottom line of this file
 const mapStateToProps = (state) => {
+  console.log('state bayyy', state);
+  
   return {
       expression:  state.setExpressionField,
       variables: state.setVariables,
@@ -55,9 +57,12 @@ class App extends Component {
           <div className="pa2 flex flex-column justify-start items-center">
             <p className="dim black dib ma0 f4-ns pa2">Variables</p>
             <VariablesList variablesList={variables} variableModifiedFunction={onVariableModified}/>  
-            <Result expressionString={expression} variablesList={variables} prevResultDic={result} calculateResultFunction={onCalculateResult} ></Result>
           </div>
         </div>
+        <div className="flex flex-row justify-center items-center">
+        <Result expressionString={expression} variablesList={variables} prevResultDic={result} calculateResultFunction={onCalculateResult} ></Result>
+        </div>
+        
       </div>
     );
   }

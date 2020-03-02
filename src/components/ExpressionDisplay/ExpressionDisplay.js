@@ -12,8 +12,8 @@ const convertAsciimath2Latex = (asciimath) =>{
 const ExpressionDisplay = ({expressionString}) => {
     const latexExpression = convertAsciimath2Latex(expressionString);
     return (
-        <div className="pa2 w-100">
-            <article className="center mw5 mw6-ns hidden ba mv4">
+        <div className="pa2 w-100 mt4">
+            <article className="center mw5 mw6-ns hidden ba">
                 <h1 className="f4 bg-near-black white mv0 pv2 ph3">Expression</h1>
                 <div className="pa3 bt overflow-x-scroll overflow-y-hidden">
                     <BlockMath>{latexExpression}</BlockMath>

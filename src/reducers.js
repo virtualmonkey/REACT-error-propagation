@@ -33,7 +33,7 @@ export const setVariables = ( state = [], action = {}) => {
             return state;
     }
 }
-export const modifyResult = (state = {}, action = {}) => {
+export const modifyResult = (state = {total: 0, uncertainty: 0}, action = {}) => {
     switch(action.type){
         case RESULT_CALCULATED:
             return {...state, ...action.payload};

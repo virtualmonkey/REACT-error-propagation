@@ -26,6 +26,7 @@ const getResult = (expression, variables, prevResult) => {
             }
             return currentValue;
         });
+        
         const result = {
             total: evaluate(expression,scope),
             uncertainty: Math.sqrt(uncertainty)
