@@ -7,7 +7,8 @@ const getResult = (expression, variables, prevResult) => {
         [i[0]] : i[1]
     })
     let derived = 0;
-    let uncertainty = 0;
+    let uncertainty_for_RMSE = 0;
+    let uncertainty_for_propagation = 0;
     let evaluation = 0;
     try{
         variables.map(currentValue => {
@@ -17,7 +18,8 @@ const getResult = (expression, variables, prevResult) => {
                 if (evaluation === Infinity || evaluation.im){
                     throw Error;
                 } else {
-                    uncertainty += Math.pow(parseFloat(evaluation*currentValue[2]),2)
+                    uncertainty_for_propagation += parseFloat(evaluation*currentValue[2])
+                    uncertainty_for_RMSE += Math.pow(parseFloat(evaluation*currentValue[2]),2)
                 }
             } catch(error) {
                 //handle a bad evaluation
@@ -29,7 +31,8 @@ const getResult = (expression, variables, prevResult) => {
         
         const result = {
             total: evaluate(expression,scope),
-            uncertainty: Math.sqrt(uncertainty)
+            uncertainty: Math.sqrt(uncertainty_for_RMSE),
+            rmse: uncertainty_for_propagation
         }
         return result;
     }

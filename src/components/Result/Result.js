@@ -15,13 +15,19 @@ const Result = ({ expressionString, variablesList, prevResultDic, calculateResul
                         <td className="pv3 pr3 bb bt b--black-20 tc">
                              {'Value: ' + prevResultDic.total}
                         </td>
-                    </tr>    
+                    </tr>
                     <tr>
                         <td className="pv3 pr3 bb b--black-20 tc">
                             
                             {'Uncertainty: ' + prevResultDic.uncertainty} 
                         </td>
-                    </tr>                 
+                    </tr>
+                    <tr>
+                        <td className="pv3 pr3 bb b--black-20 tc">
+                            
+                            {'RSME: ' + prevResultDic.rmse} 
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             
