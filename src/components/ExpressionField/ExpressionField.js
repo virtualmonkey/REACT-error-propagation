@@ -8,7 +8,7 @@ const ExpressionField = ({expressionChangeFunction, variablesChangeFunction}) =>
                 aria-label = 'Write Expression'
                 className = 'pa3 ba b--black bg-lightest-blue' 
                 type='search' 
-                placeholder='Escriba acá la expresión matemática'
+                placeholder='Escriba acá la expresión'
                 onChange = {function(event){ expressionChangeFunction(event); variablesChangeFunction(constantGetterFromASCIIMath(event.target.value))}}/>
         </div>
         
