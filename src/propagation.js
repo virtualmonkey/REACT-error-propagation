@@ -31,8 +31,8 @@ const getResult = (expression, variables, prevResult) => {
         
         const result = {
             total: evaluate(expression,scope),
-            uncertainty: Math.sqrt(uncertainty_for_RMSE),
-            rmse: uncertainty_for_propagation
+            uncertainty: uncertainty_for_propagation,
+            rmse: Math.sqrt(uncertainty_for_RMSE),
         }
         return result;
     }
