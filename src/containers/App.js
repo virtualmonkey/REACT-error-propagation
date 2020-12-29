@@ -50,7 +50,7 @@ class App extends Component {
         <Header />
         <div className="flex flex-row flex-wrap justify-around items-start">
           <div className="pa2 flex flex-column justify-start items-center">
-            <p className="dim black dib ma0 f4-ns pa2">Insert Expression</p>
+            <p className="dim black dib ma0 f4-ns pa2"></p>
             <ExpressionField expressionChangeFunction={onExpressionChange} variablesChangeFunction={onVariablesChange}/>
             <ExpressionDisplay expressionString={expression}/>
           </div>
