@@ -19,9 +19,9 @@ const VariablesList = ({variablesList, variableModifiedFunction}) => {
                 <table className="f6 w-100 mw8 center" cellSpacing="0">
                     <thead>
                         <tr>
-                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Name</th>
-                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Value</th>
-                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Uncertainty</th>
+                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Nombre</th>
+                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Valor</th>
+                            <th className="fw6 bb b--black-20 tc pb2 pr4 bg-white">Incertidumbre</th>
                         </tr>
                     </thead>
                     <tbody className="lh-copy">
